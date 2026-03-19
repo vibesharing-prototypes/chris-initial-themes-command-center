@@ -1,2 +1,14 @@
-# chris-initial-themes-command-center
-Prototype: Initial Themes - Command Center - Deployed via VibeSharing
+# Initial Themes - Command Center
+
+Deployed via [VibeSharing](https://vibesharing.app).
+
+## Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+## Deploy
+
+Push to main branch - changes go live automatically.
