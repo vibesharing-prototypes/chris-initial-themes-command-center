@@ -2,286 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ============================================================================
-   DILIGENT DESIGN SYSTEM — Theme Variable Layer
-
-   All UI components reference these CSS custom properties instead of
-   hardcoded colors. Swapping themes = swapping these variable values.
-
-   Atlas "hooks": Variables are named to align with Atlas design token
-   categories (background, text, action, status, etc.) so a future migration
-   to Atlas tokens is a 1:1 swap.
-   ============================================================================ */
-
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
-
-/* ============================================================================
-   THEME 1: MIDNIGHT — Dark, GitHub-inspired (the original)
-   Character: Technical, developer-friendly, high information density
-   ============================================================================ */
-
-[data-theme="midnight"], :root {
-  --bg-base: #0d1117;
-  --bg-surface: #161b22;
-  --bg-elevated: #21262d;
-  --bg-overlay: #0d1117;
-  --bg-inset: #010409;
-
-  --border-default: #30363d;
-  --border-muted: #21262d;
-  --border-emphasis: #484f58;
-
-  --text-primary: #f0f6fc;
-  --text-secondary: #8b949e;
-  --text-muted: #6e7681;
-  --text-disabled: #484f58;
-  --text-inverse: #0d1117;
-
-  --action-default: #58a6ff;
-  --action-hover: #79c0ff;
-  --action-muted: #388bfd26;
-
-  --status-success: #3fb950;
-  --status-success-muted: #3fb95026;
-  --status-warning: #d29922;
-  --status-warning-muted: #d2992226;
-  --status-error: #da3633;
-  --status-error-muted: #da363326;
-  --status-info: #58a6ff;
-  --status-info-muted: #58a6ff26;
-
-  --accent-purple: #a371f7;
-  --accent-purple-muted: #a371f726;
-  --accent-orange: #f0883e;
-  --accent-orange-muted: #f0883e26;
-
-  --brand-primary: #EE312E;
-  --brand-secondary: #AF292E;
-  --brand-tertiary: #D3222A;
-
-  --shadow-low: 0px 4px 24px -8px rgba(0,0,0,0.3), 0px 1px 6px -2px rgba(0,0,0,0.4);
-  --shadow-medium: 0px 6px 16px -4px rgba(0,0,0,0.4), 0px 5px 8px -8px rgba(0,0,0,0.2);
-  --shadow-high: 0px 10px 32px -6px rgba(0,0,0,0.5), 0px 4px 4px -2px rgba(0,0,0,0.3);
-
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --radius-full: 9999px;
-
-  --font-sans: 'Source Sans 3', 'Source Sans Pro', ui-sans-serif, system-ui, sans-serif;
-
-  --space-xs: 2px;
-  --space-sm: 4px;
-  --space-1: 8px;
-  --space-1-5: 12px;
-  --space-2: 16px;
-  --space-2-5: 20px;
-  --space-3: 24px;
-  --space-4: 32px;
-  --space-5: 40px;
-
-  /* Theme-specific transition */
-  --theme-transition: background-color 0.4s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.4s ease;
-}
-
-/* ============================================================================
-   THEME 2: ATLAS CORPORATE — Light, using Atlas sea palette
-   Character: Institutional, trustworthy, boardroom-ready
-   Maps directly to Atlas design tokens for future compatibility
-   ============================================================================ */
-
-[data-theme="corporate"] {
-  --bg-base: #f4f6f8;
-  --bg-surface: #ffffff;
-  --bg-elevated: #eef2f6;
-  --bg-overlay: #ffffff;
-  --bg-inset: #e4eef6;
-
-  --border-default: #d5e3f1;
-  --border-muted: #e4eef6;
-  --border-emphasis: #b7cce1;
-
-  --text-primary: #1e1e1e;
-  --text-secondary: #676767;
-  --text-muted: #949494;
-  --text-disabled: #b3b3b3;
-  --text-inverse: #ffffff;
-
-  /* Atlas action colors (sea-600/700/800) */
-  --action-default: #455D82;
-  --action-hover: #364262;
-  --action-muted: #455D8218;
-
-  --status-success: #05704B;
-  --status-success-muted: #05704B18;
-  --status-warning: #935206;
-  --status-warning-muted: #EAA14B20;
-  --status-error: #AF292E;
-  --status-error-muted: #AF292E15;
-  --status-info: #385F99;
-  --status-info-muted: #385F9918;
-
-  --accent-purple: #6246a3;
-  --accent-purple-muted: #6246a318;
-  --accent-orange: #c06820;
-  --accent-orange-muted: #c0682018;
-
-  --brand-primary: #EE312E;
-  --brand-secondary: #AF292E;
-  --brand-tertiary: #D3222A;
-
-  --shadow-low: 0px 1px 3px 0px rgba(0,0,0,0.06), 0px 1px 2px -1px rgba(0,0,0,0.06);
-  --shadow-medium: 0px 4px 6px -1px rgba(0,0,0,0.07), 0px 2px 4px -2px rgba(0,0,0,0.07);
-  --shadow-high: 0px 10px 15px -3px rgba(0,0,0,0.08), 0px 4px 6px -4px rgba(0,0,0,0.08);
-
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-full: 9999px;
-
-  --font-sans: 'Source Sans 3', 'Source Sans Pro', ui-sans-serif, system-ui, sans-serif;
-}
-
-/* ============================================================================
-   THEME 3: OBSIDIAN — Premium dark, warm copper/amber accents
-   Character: Sophisticated, executive, luxury enterprise
-   Inspired by high-end fintech and wealth management dashboards
-   ============================================================================ */
-
-[data-theme="obsidian"] {
-  --bg-base: #111014;
-  --bg-surface: #1a1820;
-  --bg-elevated: #25222d;
-  --bg-overlay: #111014;
-  --bg-inset: #0a090d;
-
-  --border-default: #302d38;
-  --border-muted: #25222d;
-  --border-emphasis: #443f50;
-
-  --text-primary: #ede8f5;
-  --text-secondary: #9b95a8;
-  --text-muted: #6d687a;
-  --text-disabled: #4a4655;
-  --text-inverse: #111014;
-
-  /* Warm copper/amber action palette */
-  --action-default: #d4956a;
-  --action-hover: #e0ad88;
-  --action-muted: #d4956a22;
-
-  --status-success: #5cb87a;
-  --status-success-muted: #5cb87a22;
-  --status-warning: #d4a04a;
-  --status-warning-muted: #d4a04a22;
-  --status-error: #c94f4f;
-  --status-error-muted: #c94f4f22;
-  --status-info: #7b9fcc;
-  --status-info-muted: #7b9fcc22;
-
-  --accent-purple: #9b7fd4;
-  --accent-purple-muted: #9b7fd422;
-  --accent-orange: #d4956a;
-  --accent-orange-muted: #d4956a22;
-
-  --brand-primary: #EE312E;
-  --brand-secondary: #AF292E;
-  --brand-tertiary: #D3222A;
-
-  --shadow-low: 0px 4px 24px -8px rgba(0,0,0,0.4), 0px 1px 6px -2px rgba(0,0,0,0.5);
-  --shadow-medium: 0px 6px 20px -4px rgba(0,0,0,0.5), 0px 4px 8px -4px rgba(0,0,0,0.3);
-  --shadow-high: 0px 12px 36px -6px rgba(0,0,0,0.6), 0px 6px 6px -2px rgba(0,0,0,0.4);
-
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-xl: 28px;
-  --radius-full: 9999px;
-
-  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
-}
-
-/* ============================================================================
-   THEME 4: HORIZON — Light with bold Diligent-red accents
-   Character: Modern, confident, distinctly Diligent
-   Uses Diligent's brand red as a functional accent throughout
-   ============================================================================ */
-
-[data-theme="horizon"] {
-  --bg-base: #f8f7f5;
-  --bg-surface: #ffffff;
-  --bg-elevated: #f0eeeb;
-  --bg-overlay: #ffffff;
-  --bg-inset: #e8e5e0;
-
-  --border-default: #ddd9d3;
-  --border-muted: #e8e5e0;
-  --border-emphasis: #c4bfb7;
-
-  --text-primary: #1c1917;
-  --text-secondary: #57534e;
-  --text-muted: #a8a29e;
-  --text-disabled: #d6d3d1;
-  --text-inverse: #ffffff;
-
-  /* Diligent red as the primary action color */
-  --action-default: #c42b28;
-  --action-hover: #a82422;
-  --action-muted: #c42b2815;
-
-  --status-success: #16803c;
-  --status-success-muted: #16803c15;
-  --status-warning: #a16207;
-  --status-warning-muted: #a1620715;
-  --status-error: #c42b28;
-  --status-error-muted: #c42b2812;
-  --status-info: #2563eb;
-  --status-info-muted: #2563eb15;
-
-  --accent-purple: #7c3aed;
-  --accent-purple-muted: #7c3aed15;
-  --accent-orange: #ea580c;
-  --accent-orange-muted: #ea580c15;
-
-  --brand-primary: #EE312E;
-  --brand-secondary: #AF292E;
-  --brand-tertiary: #D3222A;
-
-  --shadow-low: 0px 1px 2px 0px rgba(0,0,0,0.04), 0px 1px 3px 0px rgba(0,0,0,0.06);
-  --shadow-medium: 0px 2px 8px -2px rgba(0,0,0,0.08), 0px 4px 12px -4px rgba(0,0,0,0.05);
-  --shadow-high: 0px 8px 24px -4px rgba(0,0,0,0.10), 0px 4px 8px -2px rgba(0,0,0,0.06);
-
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 20px;
-  --radius-full: 9999px;
-
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-}
-
-/* ============================================================================
-   Global styles
-   ============================================================================ */
-
-* {
-  transition: var(--theme-transition);
-}
-
-/* Exclude elements where transitions cause visual glitches */
-svg, svg *, img, input, button span, .no-transition {
-  transition: none !important;
+:root {
+  --background: #0d1117;
+  --foreground: #f0f6fc;
 }
 
 body {
-  font-family: var(--font-sans);
-  background-color: var(--bg-base);
-  color: var(--text-primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #161b22;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
 }

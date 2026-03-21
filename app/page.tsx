@@ -3,6 +3,145 @@
 import React from "react";
 
 /* ------------------------------------------------------------------ */
+/*  Theme CSS (embedded — all 3 Atlas token themes)                    */
+/* ------------------------------------------------------------------ */
+
+const themeCSS = `
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+[data-theme="lens"], :root {
+  --bg-base: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f3f3f3;
+  --bg-overlay: #ffffff;
+  --bg-inset: #fafafa;
+  --border-default: #dadada;
+  --border-muted: #dadada;
+  --border-emphasis: #8c8e92;
+  --text-primary: #282e37;
+  --text-secondary: #6f7377;
+  --text-muted: #a0a2a5;
+  --text-disabled: #e6e6e6;
+  --text-inverse: #ffffff;
+  --action-default: #282e37;
+  --action-hover: #464e53;
+  --action-muted: #282e3718;
+  --status-success: #3f6900;
+  --status-success-muted: #d2ff9c;
+  --status-warning: #6a5f00;
+  --status-warning-muted: #fff2aa;
+  --status-error: #921a1d;
+  --status-error-muted: #ffedeb;
+  --status-info: #006879;
+  --status-info-muted: #d7f6ff;
+  --accent-purple: #282e37;
+  --accent-purple-muted: #fdebff;
+  --accent-orange: #924c00;
+  --accent-orange-muted: #ffede3;
+  --brand-primary: #ee312e;
+  --brand-secondary: #af292e;
+  --brand-tertiary: #d3222a;
+  --shadow-low: 0px 0px 2px 0px #0000001a, 0px 8px 16px 0px #0000001a;
+  --shadow-medium: 0px 6px 20px 0px #161b2b1f, 0px 0px 2px 0px #0000001a;
+  --shadow-high: 0px 10px 24px 0px #161b2b29, 0px 0px 2px 0px #161b2b1a;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --space-xs: 2px;
+  --space-sm: 4px;
+  --space-1: 8px;
+  --space-1-5: 12px;
+  --space-2: 16px;
+  --space-2-5: 20px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --theme-transition: background-color 0.4s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.4s ease;
+}
+
+[data-theme="atlas-light"] {
+  --bg-base: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f0f0f3;
+  --bg-overlay: #ffffff;
+  --bg-inset: #f9f9fc;
+  --border-default: #e2e2e5;
+  --border-muted: #e2e2e5;
+  --border-emphasis: #8f9193;
+  --text-primary: #242628;
+  --text-secondary: #5d5e61;
+  --text-muted: #aaabae;
+  --text-disabled: #e2e2e5;
+  --text-inverse: #ffffff;
+  --action-default: #0040d5;
+  --action-hover: #4069fe;
+  --action-muted: #0040d518;
+  --status-success: #005f35;
+  --status-success-muted: #c2ffd2;
+  --status-warning: #5d5300;
+  --status-warning-muted: #fff2aa;
+  --status-error: #921a1d;
+  --status-error-muted: #ffedeb;
+  --status-info: #19519d;
+  --status-info-muted: #ecf0ff;
+  --accent-purple: #41005d;
+  --accent-purple-muted: #f7d8ff;
+  --accent-orange: #804200;
+  --accent-orange-muted: #ffede3;
+  --brand-primary: #ee312e;
+  --brand-secondary: #af292e;
+  --brand-tertiary: #d3222a;
+}
+
+[data-theme="atlas-dark"] {
+  --bg-base: #1f2536;
+  --bg-surface: #1f2536;
+  --bg-elevated: #353b4d;
+  --bg-overlay: #0b184c;
+  --bg-inset: #2a3041;
+  --border-default: #4c5265;
+  --border-muted: #404659;
+  --border-emphasis: #71768b;
+  --text-primary: #ffffff;
+  --text-secondary: #8a90a5;
+  --text-muted: #71768b;
+  --text-disabled: #4c5265;
+  --text-inverse: #00293c;
+  --action-default: #00b7fc;
+  --action-hover: #c6e7ff;
+  --action-muted: #00b7fc22;
+  --status-success: #c2ffd2;
+  --status-success-muted: #004525;
+  --status-warning: #fff2aa;
+  --status-warning-muted: #443c00;
+  --status-error: #ff5450;
+  --status-error-muted: #540006;
+  --status-info: #e4f3ff;
+  --status-info-muted: #00405b;
+  --accent-purple: #fffbff;
+  --accent-purple-muted: #8215b2;
+  --accent-orange: #ffb780;
+  --accent-orange-muted: #5e2f00;
+  --brand-primary: #ee312e;
+  --brand-secondary: #af292e;
+  --brand-tertiary: #d3222a;
+}
+
+* { transition: var(--theme-transition); }
+svg, svg *, img, input, button span, .no-transition { transition: none !important; }
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+`;
+
+/* ------------------------------------------------------------------ */
 /*  Utility                                                            */
 /* ------------------------------------------------------------------ */
 
@@ -193,11 +332,11 @@ const detectedRisks: DetectedRisk[] = [
 ];
 
 const agents = [
-  { name: "Risk Intelligence", lastRun: "8 min ago", state: "ALERT", criteria: ["External risk signals", "News & media monitoring", "Regulatory filing analysis"] },
-  { name: "Regulatory Watch", lastRun: "15 min ago", state: "ALERT", criteria: ["Enforcement action tracking", "Cross-jurisdictional analysis", "Regulatory filing deadlines"] },
-  { name: "Vendor Intelligence", lastRun: "32 min ago", state: "ALERT", criteria: ["Vendor news monitoring", "Third-party risk signals", "Supply chain disruption tracking"] },
-  { name: "Board Materials Monitor", lastRun: "1 hr ago", state: "Needs attention", criteria: ["Board meeting prep deadlines", "Material completeness checks", "Risk disclosure alignment"] },
-  { name: "10K Disclosure Tracker", lastRun: "2 hr ago", state: "Review recommended", criteria: ["Risk factor currency", "Material change detection", "SEC filing deadlines"] },
+  { name: "Risk Intelligence", lastRun: "8 min ago", state: "ALERT" },
+  { name: "Regulatory Watch", lastRun: "15 min ago", state: "ALERT" },
+  { name: "Vendor Intelligence", lastRun: "32 min ago", state: "ALERT" },
+  { name: "Board Materials Monitor", lastRun: "1 hr ago", state: "Needs attention" },
+  { name: "10K Disclosure Tracker", lastRun: "2 hr ago", state: "Review recommended" },
 ];
 
 const workflowStages = [
@@ -323,7 +462,6 @@ function AlertHero() {
         or Board meeting materials. Review recommended before the Feb 28 Board meeting.
       </p>
 
-      {/* Severity summary */}
       <div className="mt-6 flex justify-center gap-4">
         {[
           { count: 1, label: "Critical", color: "var(--status-error)" },
@@ -344,7 +482,6 @@ function AlertHero() {
         ))}
       </div>
 
-      {/* Workflow progress */}
       <div className="mt-8 pt-6" style={{ borderTop: "1px solid var(--border-default)" }}>
         <p className="text-xs text-center uppercase tracking-wider mb-4" style={{ color: "var(--text-muted)" }}>Response Workflow</p>
         <div className="flex items-center justify-center gap-2">
@@ -446,7 +583,6 @@ function RiskCards() {
           const color = severityColor(risk.severity);
           return (
             <Card key={risk.id} className="p-0 overflow-hidden" style={{ borderColor: `color-mix(in srgb, ${color} 40%, transparent)` } as React.CSSProperties}>
-              {/* Header */}
               <div
                 className="flex items-start gap-4 px-5 py-4"
                 style={{ background: `linear-gradient(to right, color-mix(in srgb, ${color} 10%, transparent), transparent)` }}
@@ -474,7 +610,6 @@ function RiskCards() {
                 </div>
               </div>
 
-              {/* Disclosure gap */}
               <div className="px-5 py-4" style={{ borderTop: "1px solid var(--border-default)", backgroundColor: "color-mix(in srgb, var(--bg-base) 50%, transparent)" }}>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div>
@@ -513,7 +648,6 @@ function RiskCards() {
                 </div>
               </div>
 
-              {/* Action bar */}
               <div
                 className="px-5 py-3 flex items-center justify-between"
                 style={{ borderTop: "1px solid var(--border-default)", backgroundColor: "var(--bg-surface)" }}
@@ -571,7 +705,6 @@ function PromptBox() {
           </div>
         </div>
 
-        {/* Action buttons */}
         <div className="mt-4">
           <p className="mb-3 text-xs font-medium uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>Or start with</p>
           <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
@@ -739,7 +872,6 @@ function NextActionsSection() {
           ))}
         </div>
 
-        {/* What's New sidebar */}
         <Card className="p-5">
           <p className="text-xs uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>What&apos;s New</p>
           <h3 className="mt-2 text-lg font-semibold" style={{ color: "var(--text-primary)" }}>Good to Know &amp; Good to Go</h3>
@@ -791,32 +923,26 @@ function Footer() {
 /*  Theme Switcher                                                     */
 /* ------------------------------------------------------------------ */
 
-type ThemeId = "midnight" | "corporate" | "obsidian" | "horizon";
+type ThemeId = "lens" | "atlas-light" | "atlas-dark";
 
 const themes: { id: ThemeId; name: string; description: string; preview: { bg: string; surface: string; action: string; text: string } }[] = [
   {
-    id: "midnight",
-    name: "Midnight",
-    description: "Dark, technical, information-dense",
-    preview: { bg: "#0d1117", surface: "#161b22", action: "#58a6ff", text: "#f0f6fc" },
+    id: "lens",
+    name: "Lens",
+    description: "Base Diligent design system",
+    preview: { bg: "#ffffff", surface: "#f3f3f3", action: "#282e37", text: "#282e37" },
   },
   {
-    id: "corporate",
-    name: "Atlas Corporate",
-    description: "Light, institutional, boardroom-ready",
-    preview: { bg: "#f4f6f8", surface: "#ffffff", action: "#455D82", text: "#1e1e1e" },
+    id: "atlas-light",
+    name: "Atlas Light",
+    description: "Concrete palette, indigo actions",
+    preview: { bg: "#ffffff", surface: "#f0f0f3", action: "#0040d5", text: "#242628" },
   },
   {
-    id: "obsidian",
-    name: "Obsidian",
-    description: "Premium dark, warm copper accents",
-    preview: { bg: "#111014", surface: "#1a1820", action: "#d4956a", text: "#ede8f5" },
-  },
-  {
-    id: "horizon",
-    name: "Horizon",
-    description: "Light, bold Diligent-red accents",
-    preview: { bg: "#f8f7f5", surface: "#ffffff", action: "#c42b28", text: "#1c1917" },
+    id: "atlas-dark",
+    name: "Atlas Dark",
+    description: "Storm palette, sky actions",
+    preview: { bg: "#1f2536", surface: "#353b4d", action: "#00b7fc", text: "#ffffff" },
   },
 ];
 
@@ -831,7 +957,6 @@ function ThemeSwitcher({
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      {/* Theme panel */}
       {open && (
         <div
           className="absolute bottom-16 right-0 w-72 rounded-[var(--radius-lg)] p-4 no-transition"
@@ -873,7 +998,6 @@ function ThemeSwitcher({
                 }}
               >
                 <div className="flex items-center gap-3">
-                  {/* Color preview dots */}
                   <div className="flex gap-1 shrink-0">
                     <div className="h-4 w-4 rounded-full" style={{ backgroundColor: theme.preview.bg, border: "1px solid rgba(128,128,128,0.3)" }} />
                     <div className="h-4 w-4 rounded-full" style={{ backgroundColor: theme.preview.surface, border: "1px solid rgba(128,128,128,0.3)" }} />
@@ -895,7 +1019,6 @@ function ThemeSwitcher({
         </div>
       )}
 
-      {/* Toggle button */}
       <button
         onClick={() => setOpen(!open)}
         className="flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-transform hover:scale-105 active:scale-95"
@@ -920,35 +1043,38 @@ function ThemeSwitcher({
 /* ------------------------------------------------------------------ */
 
 export default function Page() {
-  const [theme, setTheme] = React.useState<ThemeId>("midnight");
+  const [theme, setTheme] = React.useState<ThemeId>("lens");
 
   React.useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "var(--bg-base)" }}>
-      <div
-        className="overflow-hidden rounded-[var(--radius-xl)] mx-auto max-w-6xl my-6"
-        style={{ backgroundColor: "var(--bg-surface)", border: "1px solid var(--border-default)", boxShadow: "var(--shadow-low)" }}
-      >
-        <TopNav />
-        <div className="px-6">
-          <div className="mt-6">
-            <AlertHero />
+    <>
+      <style dangerouslySetInnerHTML={{ __html: themeCSS }} />
+      <div className="min-h-screen" style={{ backgroundColor: "var(--bg-base)" }}>
+        <div
+          className="overflow-hidden rounded-[var(--radius-xl)] mx-auto max-w-6xl my-6"
+          style={{ backgroundColor: "var(--bg-surface)", border: "1px solid var(--border-default)", boxShadow: "var(--shadow-low)" }}
+        >
+          <TopNav />
+          <div className="px-6">
+            <div className="mt-6">
+              <AlertHero />
+            </div>
+            <AgentStatusBar />
+            <RiskCards />
+            <PromptBox />
+            <QuickActions />
+            <StakeholderPanel />
+            <RecentAppsGrid />
+            <NextActionsSection />
+            <Footer />
           </div>
-          <AgentStatusBar />
-          <RiskCards />
-          <PromptBox />
-          <QuickActions />
-          <StakeholderPanel />
-          <RecentAppsGrid />
-          <NextActionsSection />
-          <Footer />
         </div>
-      </div>
 
-      <ThemeSwitcher currentTheme={theme} onThemeChange={setTheme} />
-    </div>
+        <ThemeSwitcher currentTheme={theme} onThemeChange={setTheme} />
+      </div>
+    </>
   );
 }

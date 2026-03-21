@@ -1,19 +1,17 @@
-import type { Metadata } from "next";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Diligent Design System",
-  description: "GRC Command Center — Theme Exploration",
+export const metadata = {
+  title: "Initial Themes - Command Center",
+  description: "Prototype deployed via VibeSharing",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head>
+        <script src="https://vibesharing.app/vs-sdk.js" defer></script>
+      </head>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
